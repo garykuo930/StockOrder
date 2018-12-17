@@ -1,0 +1,87 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: NotoGothic;
+    src: url(/Fonts/NotoGothic.ttf)
+}
+
+body {
+    background-color: rgb(230, 230, 230);
+    font-family: NotoGothic;
+}
+
+header {
+    text-align: center;
+}
+
+.mycontainer {
+    width: 100%;
+    overflow: auto;
+    background-color: rgb(19, 109, 116);
+}
+
+.myheader-header {
+    width: 20%;
+    line-height: 3em;
+    float: left;
+    text-align: center;
+}
+
+.myheader-brand, .myheader-brand:hover {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.myheader-menu {
+    width: 80%;
+    overflow: auto;
+    line-height: 3em;
+    float: left;
+}
+
+    .myheader-menu li {
+        float: left;
+        width: 7em;
+        text-align: center;
+        list-style-type: none;
+        list-style-position: inside;
+    }
+
+        .myheader-menu li a {
+            color: lightgray;
+            font-weight: bold;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+            .myheader-menu li a:hover {
+                color: white;
+            }
+
+
+article {
+    width: 100%;
+    height: 840px;
+    max-height: 840px;
+}
+
+.mycontent {
+    padding-top: 100px;
+    padding-bottom: 200px;
+    width: 100%;
+    height: 540px;
+}
+
+footer {
+    width: 100%;
+    overflow: auto;
+    background-color: rgb(19, 109, 116);
+    color: white;
+    line-height: 3em;
+    text-align: center;
+}

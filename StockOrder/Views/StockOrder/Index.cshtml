@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>股票搓合機制說明</h2>
+
+<div class="col-12 row">
+    <div class="col-4 mt-3">
+        <input id="CreateRNT" type="button" class="btn btn-primary" value="產生隨機交易" />
+        <div id="OrderList" class="mt-3"></div>
+    </div>
+    <div id="tb_TradeResults1" class="col-4">
+        <div class="text-center">
+            <h3>集合競價之結果</h3>
+        </div>
+        <div id="r1" class="row">
+        </div>
+    </div>
+
+    <div id="tb_TradeResults2" class="col-4">
+        <div class="text-center">
+            <h3>逐筆交易之結果</h3>
+        </div>
+        <div id="r2" class="row">
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function ()
+        {
+            $("#CreateRNT").click(function ()
+            {
+                $("#OrderList").load("@Url.Action("CreateOrders", "StockOrder")", function ()
+                {
+                    $("#r1").load("@Url.Action("CallAuction", "StockOrder")");
+                })
+            })
+
+
+        })
+
+
+    </script>
+}
