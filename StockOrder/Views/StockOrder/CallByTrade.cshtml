@@ -1,1 +1,29 @@
-﻿
+﻿@model IEnumerable<StockOrderMVC.Models.StockOrderVM>
+
+<table id="tb_OrderLists" class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>剩餘買單數量</th>
+            <th>價格</th>
+            <th>剩餘賣單數量</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var i in Model)
+        {
+            string BuyAmount = i.BuyAmount == 0 ? "" : i.BuyAmount.ToString();
+            string SellAmount = i.SellAmount == 0 ? "" : i.SellAmount.ToString();
+
+            if (i.BuyAmount + i.SellAmount == 0)
+            {
+                continue;
+            }
+            <tr>
+                <td>@BuyAmount</td>
+                <td>@i.TargetPrice</td>
+                <td>@SellAmount</td>
+            </tr>
+        }
+    </tbody>
+</table>

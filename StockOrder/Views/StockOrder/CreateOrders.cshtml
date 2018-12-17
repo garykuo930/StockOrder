@@ -1,8 +1,4 @@
 ﻿@model IEnumerable<StockOrderMVC.Models.StockOrderVM>
-@{
-    int AccBuying = 0;
-    int AccSelling = Model.Sum(o => o.SellAmount);
-}
 
 <table id="tb_OrderLists" class="table table-bordered">
     <thead>
@@ -18,17 +14,13 @@
 
         @foreach (var i in Model)
         {
-            AccBuying += i.BuyAmount;
-
-            <tr>
-                <td>@AccBuying</td>
+            <tr id="@i.TargetPrice">
+                <td>@i.AccBuyAmount</td>
                 <td>@i.BuyAmount</td>
                 <td>@i.TargetPrice</td>
                 <td>@i.SellAmount</td>
-                <td>@AccSelling</td>
+                <td>@i.AccSellAmount</td>
             </tr>
-
-            AccSelling -= i.SellAmount;
         }
     </tbody>
 </table>
