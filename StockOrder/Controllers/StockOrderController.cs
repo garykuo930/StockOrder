@@ -143,6 +143,7 @@ namespace StockOrderMVC.Controllers
         public ActionResult CallByTrade(StockOrder order)
         {
             List<StockOrderVM> orderlist = Session["OrderList_CA"] as List<StockOrderVM>;
+            List<string> tradeResults = new List<string>();
 
             if (order.OrderType == "buying")
             {
@@ -152,6 +153,7 @@ namespace StockOrderMVC.Controllers
                 {
                     var target = orderlist.Where(o => o.TargetPrice == order.TargetPrice).Single();
                     target.BuyAmount += order.Amount;
+                    ViewBag.message = "沒有可搓合的交易，加入至目前買單數量";
                 }
                 else
                 {
@@ -160,12 +162,17 @@ namespace StockOrderMVC.Controllers
                         if (order.Amount > selling[i].SellAmount)
                         {
                             order.Amount -= selling[i].SellAmount;
+                            string result = "成功買入" + selling[i].SellAmount + "張，價格為" + selling[i].TargetPrice + "元";
                             selling[i].SellAmount = 0;
+                            tradeResults.Add(result);
                         }
                         else
                         {
                             selling[i].SellAmount -= order.Amount;
+                            string result = "成功買入" + order.Amount + "張，價格為" + selling[i].TargetPrice + "元";
                             order.Amount = 0;
+                            tradeResults.Add(result);
+                            break;
                         }
                     }
                 }
@@ -178,6 +185,7 @@ namespace StockOrderMVC.Controllers
                 {
                     var target = orderlist.Where(o => o.TargetPrice == order.TargetPrice).Single();
                     target.SellAmount += order.Amount;
+                    ViewBag.message = "沒有可搓合的交易，加入至目前賣單數量";
                 }
                 else
                 {
@@ -186,17 +194,23 @@ namespace StockOrderMVC.Controllers
                         if (order.Amount > i.BuyAmount)
                         {
                             order.Amount -= i.BuyAmount;
+                            string result = "成功賣出" + i.BuyAmount + "張，價格為" + i.TargetPrice + "元";
                             i.BuyAmount = 0;
+                            tradeResults.Add(result);
                         }
                         else
                         {
                             i.BuyAmount -= order.Amount;
+                            string result = "成功賣出" + order.Amount + "張，價格為" + i.TargetPrice + "元";
                             order.Amount = 0;
+                            tradeResults.Add(result);
+                            break;
                         }
                     }
                 }
             }
 
+            ViewBag.tradeResults = tradeResults;
             return PartialView(orderlist);
         }
     }

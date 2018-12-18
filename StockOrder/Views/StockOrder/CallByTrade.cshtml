@@ -3,9 +3,9 @@
 <table id="tb_OrderLists" class="table table-bordered mt-3">
     <thead>
         <tr>
-            <th>剩餘買單數量</th>
+            <th>買單數量</th>
             <th>價格</th>
-            <th>剩餘賣單數量</th>
+            <th>賣單數量</th>
         </tr>
     </thead>
     <tbody>
@@ -27,3 +27,11 @@
         }
     </tbody>
 </table>
+
+<div>
+    @foreach (var r in (List<string>)ViewBag.tradeResults)
+    {
+        <div>@r</div>
+    }
+    @ViewBag.message
+</div>
