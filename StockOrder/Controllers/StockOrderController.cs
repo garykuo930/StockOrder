@@ -213,5 +213,20 @@ namespace StockOrderMVC.Controllers
             ViewBag.tradeResults = tradeResults;
             return PartialView(orderlist);
         }
+
+        public ActionResult Auction()
+        {
+            return View();
+        }
+
+        public ActionResult Trade()
+        {
+            return View();
+        }
+
+        public ActionResult Example()
+        {
+            return View();
+        }
     }
 }

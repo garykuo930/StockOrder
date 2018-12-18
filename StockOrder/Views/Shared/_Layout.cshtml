@@ -16,7 +16,11 @@
                 <div class="myheader-header">
                     @Html.ActionLink("StockOrder", "Index", "StockOrder", new { area = "" }, new { @class = "myheader-brand" })
                 </div>
-                <ul class='myheader-menu'></ul>
+                <ul class='myheader-menu'>
+                    <li><a href='@Url.Action("Auction","StockOrder")'>集合競價</a></li>
+                    <li><a href='@Url.Action("Trade","StockOrder")'>逐筆交易</a></li>
+                    <li><a href='@Url.Action("Example","StockOrder")'>程式範例</a></li>
+                </ul>
             </div>
         </header>
         <article id="article" class="p-3">

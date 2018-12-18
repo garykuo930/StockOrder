@@ -98,6 +98,10 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="images\info13-1.png" />
+    <Content Include="images\info13-2.png" />
+    <Content Include="images\info13-3.png" />
+    <Content Include="images\info13-4.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -166,6 +170,9 @@
     <Content Include="Views\StockOrder\CreateOrders.cshtml" />
     <Content Include="Views\StockOrder\CallAuction.cshtml" />
     <Content Include="Views\StockOrder\CallByTrade.cshtml" />
+    <Content Include="Views\StockOrder\Auction.cshtml" />
+    <Content Include="Views\StockOrder\Trade.cshtml" />
+    <Content Include="Views\StockOrder\Example.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -3,66 +3,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>股票搓合機制說明</h2>
-
-<div class="col-12 mt-5 row">
-    <div class="col-4">
-        <div class="text-center">
-            <h3>交易總覽</h3>
-        </div>
-        <input id="CreateRNT" type="button" class="btn btn-primary" value="產生隨機交易" />
-        <div id="OrderList" class="mt-3"></div>
-    </div>
-    <div id="tb_TradeResults1" class="col-4">
-        <div class="text-center">
-            <h3>集合競價之結果</h3>
-        </div>
-        <div id="r1">
-        </div>
-    </div>
-
-    <div id="tb_TradeResults2" class="col-4">
-        <div class="text-center">
-            <h3>逐筆交易之結果</h3>
-        </div>
-        <div class="col-12 row">
-            <form id="trade" class="form-inline" style="padding:0 60px;">
-                <select id="OrderType" name="OrderType" class="custom-select">
-                    <option value="buying">買入</option>
-                    <option value="selling">賣出</option>
-                </select>
-                <div class="form-group">
-                    <input id="Amount" name="Amount" type="text" class="form-control mx-2" style="width:100px" /><label>張</label>
-                    <input id="TargetPrice" name="TargetPrice" type="text" class="form-control mx-2" style="width:100px" /><label>元</label>
-                    <input id="btn_submit" type="button" value="送出" class="btn btn-success ml-3" />
-                </div>
-            </form>
-        </div>
-        <div id="r2">
-        </div>
-    </div>
+<div class="col-12">
+    <p style="text-align:center;margin-top:250px;font-size:36px">股票搓合機制之說明與程式範例</p>
+    <p style="text-align:center;font-size:28px">郭庭彰</p>
 </div>
-
-@section scripts{
-    <script>
-        $(document).ready(function ()
-        {
-            $("#CreateRNT").click(function ()
-            {
-                $("#OrderList").load("@Url.Action("CreateOrders", "StockOrder")", function ()
-                {
-                    $("#r1").load("@Url.Action("CallAuction", "StockOrder")");
-                })
-            })
-
-            $("#btn_submit").click(function ()
-            {
-                var data = $("#trade").serialize();
-                $("#r2").load("@Url.Action("CallByTrade", "StockOrder")", data);
-            })
-
-        })
-
-
-    </script>
-}

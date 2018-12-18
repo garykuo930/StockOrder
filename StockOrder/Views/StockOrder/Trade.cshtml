@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Trade";
+}
+
+<h2>逐筆交易之說明</h2>
+
+<div class="col-12 mt-5 row">
+    <div class="col-4">
+        <div class="text-center">
+            <h3>逐筆交易原則</h3>
+        </div>
+        <ul style="text-indent:0px; margin-left:20px; ">
+            <li>
+                買賣成交優先順序<br>
+                撮合依價格優先及時間優先原則依續成交，買賣申報之優先順序原則決定如下：
+                <ol style="list-style:none; text-indent:-24px; margin-left:32px;">
+                    <li>(1) 價格優先原則：較高買進申報優先於較低買進申報，較低賣出申報優先於較高賣出申報。同價位之申報，依時間優先原則決定優先順序。</li>
+                    <li>(2) 時間優先原則：開市前輸入之申報優先於開市後輸入之申報。開市前依電腦隨機排列方式決定優先順序，開市後輸入之申報，依輸入時序決定優先順序。</li>
+                </ol>
+            </li>
+        </ul>    </div>
+    <div class="col-4">
+        當筆輸入之買進申報價格高於或等於先前輸入之最低賣出申報價格時，依賣出申報價格由低至高依序成交，直至完全滿足或當筆輸入之買進申報價格低於未成交之賣出申報價格為止。<br>
+        舉例說明如圖例3.1。<br>
+        <figure><img src="~/images/info13-3.png"></figure>
+    </div>
+
+    <div class="col-4">
+        當筆輸入之賣出申報價格低於或等於先前輸入之最高買進申報價格時，依買進申報價格由高至低依序成交，直至完全滿足或當筆輸入之賣出申報價格高於未成交之買進申報價格為止。<br>
+        舉例說明如圖例3.2。<br>
+        <figure><img src="~/images/info13-4.png"></figure>
+    </div>
+</div>
